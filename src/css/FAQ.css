@@ -68,7 +68,7 @@
   gap: 12px;
 }
 
-.faq-btn {
+.faq-question-container {
   display: flex;
   align-items: center;
 }
@@ -79,7 +79,6 @@
 }
 
 .faq-answer {
-  display: none;
   margin-top: 18px;
   color: var(--purple-600);
   font-size: 0.7rem;
