@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import FAQItem from "./FAQItem";
 import faqData from "./faqData";
 import starIcon from "../assets/images/icon-star.svg";
 
 export default function FAQ() {
+  const [openQuestion, setOpenQuestion] = useState(null);
+
   return (
     <div className="faq-app">
       <div className="background-container">
@@ -18,10 +20,19 @@ export default function FAQ() {
         </div>
 
         <div className="faq-content">
-          {faqData.map((Item, index) => (
-            <FAQItem key={index} question={Item.question} answer={Item.answer} />
+          {faqData.map((Item) => (
+            <FAQItem
+              key={Item.question}
+              question={Item.question}
+              answer={Item.answer}
+              isOpen={openQuestion === Item.question}
+              onToggle={() =>
+                setOpenQuestion((prev) =>
+                  prev === Item.question ? null : Item.question
+                )
+              }
+            />
           ))}
-          
         </div>
       </main>
     </div>
